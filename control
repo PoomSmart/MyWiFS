@@ -1,0 +1,10 @@
+Package: com.ps.mywifs
+Name: MyWiFS
+Description: Flipswitch for MyWi, all three types
+Version: 0.0.1
+Priority: optional
+Section: Addons (Flipswitch)
+Architecture: iphoneos-arm
+Depends: mobilesubstrate, com.a3tweaks.flipswitch
+Maintainer: PoomSmart
+Author: PoomSmart
