@@ -4,4 +4,5 @@
 + (instancetype)sharedInstance;
 + (NSDictionary *)dictionary:(NSDictionary *)dictionary setValue:(id)value forKeyPath:(NSArray *)keyPath;
 @property(retain, nonatomic) NSDictionary *settings;
+- (void)settingsChanged;
 @end

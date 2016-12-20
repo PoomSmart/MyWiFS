@@ -1,2 +1,4 @@
 .theos
 obj
+
+*.dylib

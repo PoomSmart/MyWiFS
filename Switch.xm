@@ -4,6 +4,10 @@
 #import "Common.h"
 #import "MyWiHeader.h"
 
+@interface BluetoothManager : NSObject
++ (instancetype)sharedInstance;
+@end
+
 @interface MyWiFSSwitch : NSObject <FSSwitchDataSource>
 @end
 
@@ -42,6 +46,7 @@
 	NSDictionary *settings = [self myWi].settings;
 	NSDictionary *newSettings = [NSClassFromString(@"MyWiSettings") dictionary:settings setValue:[NSNumber numberWithBool:newState == FSSwitchStateOn] forKeyPath:[NSArray arrayWithObjects:[self currentType], @"Enabled", nil]];
     [self myWi].settings = newSettings;
+    [[self myWi] settingsChanged];
 }
 
 @end
@@ -49,4 +54,6 @@
 %ctor
 {
 	dlopen("/Applications/MyWi.app/MyWiCommon.dylib", RTLD_LAZY);
+	dlopen("/Applications/MyWi.app/MyWiCore.dylib", RTLD_LAZY);
+	[BluetoothManager sharedInstance];
 }
